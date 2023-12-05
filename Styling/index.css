@@ -1,9 +1,10 @@
+/* Home Page and Nav bar styling*/
 header{
     color: #5a3d16;
     background-color: black;
 }
 
-nav a {
+nav a{
     color: black;
     text-decoration: none;
     padding: 10px;
@@ -19,7 +20,7 @@ nav{
     margin: 5px;
 }
 
-nav a:hover {
+nav a:hover{
     background-color: #d2b48c; /* Change to a darker shade of beige on hover */
 }
 
@@ -28,11 +29,19 @@ nav a:hover {
     position: fixed;
 }
 
-
-
 footer{
     position:absolute;
     bottom: 5%;
+    right: 5%;
+}
+
+#footer{
+    background-color: #8b5a2b;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
     right: 5%;
 }
 
@@ -41,3 +50,40 @@ body{
     background-attachment: fixed;
     background-size: 100%;
   }
+
+/* About Page */
+
+/*.aboutContent-container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}*/
+
+.aboutContent-container{
+    background-color: #fff;
+    background-image: url(https://i.postimg.cc/SxCd3KB6/vintage-paper-book.jpg);
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 5px solid #8b5a2b; /* Dark brown border to simulate torn edges */
+    border-radius: 10px;
+}
+
+.aboutContent-container h3{
+    color: #8b5a2b;
+}
+
+.aboutContent-container p{
+    line-height: 1.6;
+}
+
+#footerLook{
+     background-color: #8b5a2b;
+     color: #fff;
+     text-align: center;
+     padding: 10px;
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+}
