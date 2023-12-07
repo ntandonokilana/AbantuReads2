@@ -12,19 +12,19 @@ function product(name, price, description, url) {
 // Creating a constructor function.
 let product1 = new product("Things Fall Apart", 349.00, " by Chinua Achebe", "https://i.postimg.cc/Ssw2w5Jn/Things-Fall-Apart.jpg");
 let product2 = new product("The Hairdresser of Harare", 299.00, "by Tendai Hunchu", "https://i.postimg.cc/RhSLyrMx/The-hairdresser-of-Harare.jpg");
-let product3 = new product("Coconut", 249.99, "by Kopano Matlwa", "https://i.postimg.cc/Dwn5bXVw/Kopano-Coconut.jpg");
+let product3 = new product("Coconut", 249.99, "by Kopano Matlwa", "https://i.postimg.cc/wBJKLhmZ/Coconut.jpg");
 let product4 = new product("You Have to Be Gay to Know God", 245.00, " by Siya Khumalo", "https://i.postimg.cc/vB4dFKXk/YHTBGTKG-Siya-Khumalo.png");
 let product5 = new product("Period Pains", 225.00, "by Kopano Matlwa", "https://i.postimg.cc/1z6pCR1j/period-pain.jpg");
 let product6 = new product("Freshwater", 295.00, "by Akwaeke Emezi", "https://i.postimg.cc/KzCjdB77/freshwater-akwaeke-emezi.jpg");
 
 // Pushing items to the empty array
 items.push(product1, product2, product3, product4, product5, product6);
-localStorage.setItem("product", JSON.stringify(items));
 
 // Changing string to an array.
-items = JSON.parse(localStorage.getItem('product')) || [];
+localStorage.setItem('items', JSON.stringify(items))
+items = JSON.parse(localStorage.getItem('items'))
 
-let table = document.querySelector('table');
+let table = document.querySelector('table')
 
 function displayProducts() {
   let products = items.map(function (item, position) {
@@ -49,7 +49,7 @@ displayProducts();
 function remove(position) {
   items.splice(position, 1);
   different();
-  lucky();
+  displayProducts();
 }
 
 table.addEventListener('click', function () {
@@ -59,6 +59,6 @@ table.addEventListener('click', function () {
 });
 
 function different() {
-  localStorage.setItem('product', JSON.stringify(items));
-  items = JSON.parse(localStorage.getItem('product')) || [];
+  localStorage.setItem('items', JSON.stringify(items));
+  items = JSON.parse(localStorage.getItem('items')) || [];
 }
