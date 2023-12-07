@@ -1,24 +1,30 @@
-let felakuti = [];
+let library = [];
+let main = document.querySelector('main');
+let product = JSON.parse(localStorage.getItem('items'))
 
-let main = document.querySelector('main'); // Define 'main' for product page
-let product = JSON.parse(localStorage.getItem('items'))// Pulling items from local storage
-
-main.innerHTML = product.map(function (item,index) {
-  console.log(item)
-  console.log(index);
+// I added classes to this code for better styling using Bootstrap.
+main.innerHTML = product.map(function (item, index) {
   return `
-    <div class="card">
-      <h3>${item.name}</h3>
-      <p><img src="${item.url}" class="book-image img-fluid" alt="Book Image"></p>
-      <p>${item.description}</p>
-      <p>R${item.price}</p>
-      <button class="btn btn-primary" value='${index}' data-add>Add to cart</button>
+    <div class="card mb-3" style="max-width: 540px;"> 
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="${item.url}" class="img-fluid" alt="Book Image">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <p class="card-text">${item.description}</p>
+            <p class="card-text"><small class="text-muted">R${item.price}</small></p>
+            <button class="btn btn-primary" value="${index}" data-add>Add to cart</button>
+          </div>
+        </div>
+      </div>
     </div>`;
 }).join('');
 
 function add(index) {
-  felakuti.push(items[index]);
-  localStorage.setItem('felakuti', JSON.stringify(felakuti));
+  library.push(product[index]);
+  localStorage.setItem('library', JSON.stringify(library));
 }
 
 main.addEventListener('click', function () {

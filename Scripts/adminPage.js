@@ -17,7 +17,7 @@ let product4 = new product("You Have to Be Gay to Know God", 245.00, " by Siya K
 let product5 = new product("Period Pains", 225.00, "by Kopano Matlwa", "https://i.postimg.cc/1z6pCR1j/period-pain.jpg");
 let product6 = new product("Freshwater", 295.00, "by Akwaeke Emezi", "https://i.postimg.cc/KzCjdB77/freshwater-akwaeke-emezi.jpg");
 
-// Pushing items to the empty array
+// Pushing items to the empty array.  
 items.push(product1, product2, product3, product4, product5, product6);
 
 // Changing string to an array.
@@ -61,4 +61,4 @@ table.addEventListener('click', function () {
 function different() {
   localStorage.setItem('items', JSON.stringify(items));
   items = JSON.parse(localStorage.getItem('items')) || [];
-}
+} 
