@@ -1,42 +1,60 @@
-document.getElementById('searchBtn').addEventListener('click', function (){
-    // This is to receive the value for search input
-    const searchInputValue = document.getElementById('searchInput').value;
-    
-    // Perform some action with the search input value (e.g., alert for demonstration)
-    alert('Searching for: products ' + searchInputValue);
-});
-
-document.getElementById('sortBtn').addEventListener('click', function () {
-    // Perform some action when the sort button is clicked (e.g., alert for demonstration)
-    alert('Sort items in alphabetical order')
-});
-
-let literaturebuy = []; // this is the empty array to put the purchased items into.
-items = JSON.parse(localStorage.getItem('item'))
-
-main.innerHTML = items.map(function(item,index){
-    return `
-        <div>
-            <h2>${item.name}</h2>
-            <p><img src = '${item.url}'></p>
-            <p>${item.description}</p>
-            <p>${item.price}</p>
-            <button value = '${index}' data-add>Add to cart</button>
-        </div>
-    `
-}).join('')
-
-function add(index){
-    purchased.push(items[index])
-    localStorage.setItem('literaturebuy', JSON.stringify(purchased))
-}
-
-main.addEventListener('click', function(){
-    if(event.target.hasAttribute('data-add')){
-        add(event.target.value)
+ldocument.addEventListener('DOMContentLoaded', function () {
+    let main = document.getElementById('products-content'); // Define 'main' for product page
+    let items = JSON.parse(localStorage.getItem('product')) || [];
+    let literaturebuy = JSON.parse(localStorage.getItem('literaturebuy')) || [];
+  
+    function add(index) {
+      literaturebuy.push(items[index]);
+      localStorage.setItem('literaturebuy', JSON.stringify(literaturebuy));
     }
-})
-
-let a = items.filter(item => {
-    return item.name == 'Things Fall Apart'
-})
+  
+    main.addEventListener('click', function () {
+      if (event.target.hasAttribute('data-add')) {
+        add(event.target.value);
+      }
+    });
+  
+    document.getElementById('searchBtn').addEventListener('click', function () {
+      const searchInputValue = document.getElementById('searchInput').value.toLowerCase();
+      let searchResults = items.filter(item => item.name.toLowerCase().includes(searchInputValue));
+      main.innerHTML = searchResults.map(function (item, index) {
+        return `
+          <div class="card">
+            <h3>${item.name}</h3>
+            <p><img src="${item.url}" class="book-image img-fluid" alt="Book Image"></p>
+            <p>${item.description}</p>
+            <p>R${item.price}</p>
+            <button class="btn btn-primary" value='${index}' data-add>Add to cart</button>
+          </div>`;
+      }).join('');
+    });
+  
+    document.getElementById('sortBtn').addEventListener('click', function () {
+      items.sort((a, b) => a.name.localeCompare(b.name));
+      main.innerHTML = items.map(function (item, index) {
+        return `
+          <div class="card">
+            <h3>${item.name}</h3>
+            <p><img src="${item.url}" class="book-image img-fluid" alt="Book Image"></p>
+            <p>${item.description}</p>
+            <p>R${item.price}</p>
+            <button class="btn btn-primary" value='${index}' data-add>Add to cart</button>
+          </div>`;
+      }).join('');
+    });
+  
+    function add(index) {
+      literaturebuy.push(items[index]);
+      localStorage.setItem('literaturebuy', JSON.stringify(literaturebuy));
+    }
+  
+    main.addEventListener('click', function () {
+      if (event.target.hasAttribute('data-add')) {
+        add(event.target.value);
+      }
+    });
+  
+    let a = items.filter(item => {
+      return item.name == 'Things Fall Apart';
+    });
+  });
