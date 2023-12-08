@@ -196,3 +196,15 @@ h2{
     padding: 3px 6px;
     cursor: pointer;
   }
+
+  /* card styling */
+  .card {
+    max-width: 18rem;
+  }
+  
+  .row-of-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }

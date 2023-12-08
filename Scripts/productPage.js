@@ -65,7 +65,7 @@ function updateCart() {
     listItem.innerHTML = `
       <span>${item.name}</span>
       <span>R${item.price}</span>
-      <button class="btn btn-danger btn-sm" data-remove="${index}">Remove</button>
+      <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})" >Remove</button>
     `;
     cartItemsContainer.appendChild(listItem);
   });
@@ -79,11 +79,11 @@ function addToCart(index) {
   let selectedProduct = product[index];
   cart.push(selectedProduct);
   updateCart();
-}
+};
 
 // Function to remove an item from the cart.
 function removeFromCart(index) {
-  cart.splice(index, 1);
+  cart.splice(index, 1)[0];
   updateCart();
 }
 
@@ -98,3 +98,9 @@ main.addEventListener('click', function (event) {
 
 // Call the updateCart function to display any existing items in the cart.
 updateCart();
+
+// This is to ensure all products are visible when the page is loaded
+window.addEventListener('load', function () {
+  displayProducts(product);
+});
+

@@ -62,3 +62,44 @@ function different() {
   localStorage.setItem('items', JSON.stringify(items));
   items = JSON.parse(localStorage.getItem('items')) || [];
 } 
+
+//The following is my code for the Edit button
+function openModal(index) {
+  let modal = document.getElementById('modal');
+  
+  let span = document.getElementsByClassName('close')[0];
+  let product = products[index];
+  modal.style.display = 'block';
+  // the inputs to be refilled in the modal
+  document.getElementById('editName').value = product.name;
+  document.getElementById('editDescription').value = product.description;
+  document.getElementById('editPrice').value = product.price;
+  // this removes the modal(X)
+  span.onclick = function() {
+      modal.style.display = 'none';
+  };
+  // Close the modal when the user clicks outside the modal
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = 'none';
+      }
+  };
+  // Update the product details when the user submits the form
+  document.getElementById('editForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      product.name = document.getElementById('editName').value;
+      product.description = document.getElementById('editDescription').value;
+      product.price = document.getElementById('editPrice').value;
+      // Close the modal
+      modal.style.display = 'none';
+      localStorage.setItem('products', JSON.stringify(products)); // Update local storage
+      displayProducts();
+  });
+}
+// Event listener for the edit button open the modal to edit certain products
+table.addEventListener('click', function(event) {
+  if (event.target.classList.contains('edit')) {
+      let index = event.target.value;
+      openModal(index);
+  }
+});
