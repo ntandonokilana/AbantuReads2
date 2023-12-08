@@ -26,7 +26,6 @@ main.innerHTML = bought.map((items, index)=> {
             <h5 class="card-title">${items.name}</h5>
             <p class="card-text">${items.description}</p>
             <p class="card-text"><small class="text-muted">R${items.price}</small></p>
-            <button class="btn btn-primary" value="${index}" data-add onclick='removeFromCart(${index})'>Clear</button>
           </div>
         </div>
       </div>
