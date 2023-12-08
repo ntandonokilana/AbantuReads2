@@ -24,10 +24,10 @@ nav a:hover{
     background-color: #d2b48c; /* Change to a darker shade of beige on hover */
 }
 
-#homeImage{
+/* #homeImage{
     background-size: 50%;
     position: fixed;
-}
+} */
 
 footer{
     position:absolute;
@@ -137,9 +137,9 @@ form{
     background-color: #8B4513;
 }
 
-.tagline{
-    text-shadow: #966a32;
-}
+/* .tagline{
+    text-shadow: #422e14;
+} */
 
 h2{
     color: #2e1d0c;
@@ -149,17 +149,50 @@ h2{
 } */
 
 
-#wUs{
+/* #wUs{
     color: Red;
     text-align: center;
-    font-family: Sofia;
+    font-family: Trirong;
     font-size: larger;
     font-weight: bold;
-}
+} */
+
 #wUs{
-    color: rgba(106, 56, 23, 0.959);
+    color: rgba(0, 0, 0, 0.959);
     text-align: center;
-    font-family: Sofia;
+    font-family: Trirong;
     font-size: larger;
     font-weight: bold;
 } 
+
+/* Cart section styling */
+#cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  #cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+  }
+  
+  .cart-item button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 3px 6px;
+    cursor: pointer;
+  }

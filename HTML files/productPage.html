@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
     <link rel="stylesheet" href="/Styling/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
 </head>
+<style>
+   body{
+       background-image: url("https://i.postimg.cc/nhYKZRz1/books-1163695-1280.jpg");
+    }
+</style>
 <body>
+    <div id="cart">
+        <h4>Shopping Cart</h4>
+        <ul id="cart-items"></ul>
+      </div>
     <header><h1>AbantuReads</h1>
         <p><strong>A Tapestry of Tales, An Ode to African Heritage.</strong></p>
     </header>
@@ -20,7 +29,7 @@
         <a href="/HTML files/contactPage.html">Write Us</a>
     </nav>
     <div class="s-buttons">
-        <input type="search">
+        <input type="search" id="searchInput">
         <button id="searchBtn">Search</button>
         <button id="sortBtn">Sort</button>
     </div>
